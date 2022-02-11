@@ -111,7 +111,7 @@ Expected result:
     ["kia"]
 ]
 ```
-## Instruksi
-- Fork repo ini kemudian clone ke local 
-- Kerjakan Soal test dengan membuat folder baru berisi source code dan jawaban dengan nama masin-masing
-- Untuk mengumpulkan hasilnya silahkan lakukan pull request 
+## Instruksi Pengerjaan
+- Fork repo ini ke github masing-masing kemudian clone dan mulai anda sudah dapat mulai mengerjakan
+- Kerjakan Soal test dan simpan hasilnya di folder baru berisi source code dan jawaban
+- Untuk mengumpulkan hasilnya silahkan lakukan pull request
