@@ -22,9 +22,9 @@ Tulisakan SQL QUERY untuk mendapatkan data berisi:
 
 * Kolom ParentUserName adalah UserName berdasarkan value Parent
 
-## 2. Buat sebuah microservice untuk menampilkan dan menyimpan data medicaal record
+## 2. Buat sebuah Service untuk menampilkan dan menyimpan data medicaal record
 
-Microservice dapat menggunakan protocol REST JSON HTTP
+Service dapat menggunakan protocol REST JSON HTTP
 
 Fungsi yang perlu diimplementasi:
 - GET dengan pagination 
