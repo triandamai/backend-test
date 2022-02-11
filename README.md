@@ -1,5 +1,5 @@
 # backend-test
-Soal Test backen developer
+Soal Test backend developer
 ## 1. Simple database Querying
 
 Terdapat sebuah table "USER" yg memiliki 3 kolom: ID, UserName, Parent. Di mana:
@@ -29,6 +29,7 @@ Microservice dapat menggunakan protocol REST JSON HTTP
 Fungsi yang perlu diimplementasi:
 - GET dengan pagination 
 - GET detail medical record berdasarkan id
+- POST menyimpan data medical record
 
 Contoh Data Medical Record:
 ```json
