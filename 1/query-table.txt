@@ -1,0 +1,15 @@
+CREATE DATABASE member;
+
+CREATE TABLE user (
+    ID INT(11) NOT NULL AUTO INCREMENT, 
+    UserName VARCHAR(50) NOT NULL,
+    Parent INT(11),
+    PRIMARY KEY (ID)
+);
+
+INSERT INTO user (ID, UserName, Parent) VALUES
+    (null, Ali, 2),
+    (null, Budi, 0),
+    (null, Cecep, 1);
+
+SELECT A.ID, A.UserName, B.UserName AS 'ParentUserName' FROM user A LEFT JOIN user B ON A.Parent=B.ID
