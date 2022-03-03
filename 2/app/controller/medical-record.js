@@ -12,17 +12,11 @@ const addRecordTemperature = (req, res) => {
         temperatur
     } = req.body
 
-    let member = connection.query({ sql: `SELECT * FROM member WHERE id = ${id_member}` },
-        (error, result) => {
-            if (error) { res.send(error) } else { return result }
+    if (type != 'temperature') {
+        res.status(400).send({
+            message: 'Medical Record Type is False'
         })
-
-    let nurse = connection.query({ sql: `SELECT * FROM nurse WHERE id = ${id_member}` },
-        (error, result) => {
-            if (error) { res.send(error) } else { return result }
-        })
-
-    if (member.id == id_member && nurse.id == id_nurse && type == 'temperature') {
+    } else {
         connection.query({
             sql: 'INSERT INTO medical_record (id_member, id_nurse, type, method, diagnosis, note, mime_type) VALUES (?,?,?,?,?,?,?)',
             values: [id_member, id_nurse, type, method, diagnosis, note, mime_type]
@@ -47,10 +41,6 @@ const addRecordTemperature = (req, res) => {
                 })
             }
         })
-    } else {
-        res.send({
-            message: 'Check id_member, id_nurse, dan type'
-        })
     }
 }
 
@@ -67,17 +57,11 @@ const addRecordBloodPressure = (req, res) => {
         disatole
     } = req.body
 
-    let member = connection.query({ sql: `SELECT * FROM member WHERE id = ${id_member}` },
-        (error, result) => {
-            if (error) { res.send(error) } else { return result }
+    if (type != 'bloodpressure') {
+        res.status(400).send({
+            message: 'Medical Record Type is False'
         })
-
-    let nurse = connection.query({ sql: `SELECT * FROM nurse WHERE id = ${id_member}` },
-        (error, result) => {
-            if (error) { res.send(error) } else { return result }
-        })
-
-    if (member.id == id_member && nurse.id == id_nurse && type == 'bloodpressure') {
+    } else {
         connection.query({
             sql: 'INSERT INTO medical_record (id_member, id_nurse, type, method, diagnosis, note, mime_type) VALUES (?,?,?,?,?,?,?)',
             values: [id_member, id_nurse, type, method, diagnosis, note, mime_type]
@@ -102,10 +86,6 @@ const addRecordBloodPressure = (req, res) => {
                 })
             }
         })
-    } else {
-        res.send({
-            message: 'Check id_member, id_nurse, dan type'
-        })
     }
 }
 
@@ -125,17 +105,11 @@ const addRecordSleep = (req, res) => {
         wakeTime
     } = req.body
 
-    let member = connection.query({ sql: `SELECT * FROM member WHERE id = ${id_member}` },
-        (error, result) => {
-            if (error) { res.send(error) } else { return result }
+    if (type != 'sleep') {
+        res.status(400).send({
+            message: 'Medical Record Type is False'
         })
-
-    let nurse = connection.query({ sql: `SELECT * FROM nurse WHERE id = ${id_member}` },
-        (error, result) => {
-            if (error) { res.send(error) } else { return result }
-        })
-
-    if (member.id == id_member && nurse.id == id_nurse && type == 'sleep') {
+    } else {
         connection.query({
             sql: 'INSERT INTO medical_record (id_member, id_nurse, type, method, diagnosis, note, mime_type) VALUES (?,?,?,?,?,?,?)',
             values: [id_member, id_nurse, type, method, diagnosis, note, mime_type]
@@ -160,10 +134,6 @@ const addRecordSleep = (req, res) => {
                 })
             }
         })
-    } else {
-        res.send({
-            message: 'Check id_member, id_nurse, dan type'
-        })
     }
 }
 
@@ -172,7 +142,7 @@ const getAllRecord = (req, res) => {
     let limit = 3
     let offset = (page - 1) * limit
 
-    if (page){
+    if (page) {
         sql = `SELECT m.*, t.temperatur, b.systole, b.disatole, s.sleep_start, s.sleep_end, s.deep_sleep, s.light_sleep, s.wakeTime FROM medical_record m 
             LEFT JOIN temperature t ON m.id=t.id_checkup LEFT JOIN bloodpressure b ON m.id=b.id_checkup LEFT JOIN sleep s ON m.id=s.id_checkup 
             WHERE t.id_checkup is not null or b.id_checkup is not null or s.id_checkup is not null ORDER BY m.id LIMIT ${limit} OFFSET ${offset}`
@@ -244,19 +214,20 @@ const getAllRecord = (req, res) => {
                     })
                 }
             });
-            result =newRes
+            result = newRes
             res.status(200).send({
                 properties: {
-                    page: page
+                    page: page,
+                    limit: limit
                 },
                 result,
             })
-        } 
+        }
     })
 }
 
 const getRecordById = (req, res) => {
-    let {id} = req.params
+    let { id } = req.params
     connection.query({
         sql: `SELECT m.*, t.temperatur, b.systole, b.disatole, s.sleep_start, s.sleep_end, s.deep_sleep, s.light_sleep, s.wakeTime FROM medical_record m LEFT JOIN temperature t ON m.id=t.id_checkup LEFT JOIN bloodpressure b ON m.id=b.id_checkup LEFT JOIN sleep s ON m.id=s.id_checkup WHERE m.id=${id} AND (t.id_checkup is not null or b.id_checkup is not null or s.id_checkup is not null)`
     }, (error, result) => {
@@ -264,7 +235,6 @@ const getRecordById = (req, res) => {
             res.send(error)
         } else {
             let newRes = []
-            console.log(result)
             result.forEach(e => {
                 if (e.type == 'temperature') {
                     newRes.push({
@@ -319,7 +289,7 @@ const getRecordById = (req, res) => {
                     })
                 }
             });
-            result =newRes
+            result = newRes
             res.status(200).send(result)
         }
     })
