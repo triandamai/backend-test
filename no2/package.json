@@ -1,0 +1,29 @@
+{
+  "name": "backend-test-cexup",
+  "version": "1.0.0",
+  "description": "Soal Test backend developer",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "npx nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdul15irsyad/backend-test-cexup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdul15irsyad/backend-test-cexup/issues"
+  },
+  "homepage": "https://github.com/abdul15irsyad/backend-test-cexup#readme",
+  "devDependencies": {
+    "jest": "^28.1.3",
+    "supertest": "^6.2.4"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

@@ -1,0 +1,1 @@
+SELECT `users1`.`ID`,`users1`.`UserName`,`users2`.`UserName` AS `ParentUserName` FROM `users` `users1` LEFT JOIN `users` `users2` ON `users1`.`Parent`=`users2`.`ID`
