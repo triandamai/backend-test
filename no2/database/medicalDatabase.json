@@ -1,0 +1,66 @@
+[
+    {
+        "id": "2337",
+        "member_id": "CXPq9AD0XZoOO",
+        "nurse_id": "CXPq9AD0XZoRR",
+        "type": "TEMPERATURE",
+        "value": "35.66",
+        "method": "MANUAL",
+        "diagnosis": "diagnosis",
+        "note": "ini adalah note empat",
+        "mime_type": "text",
+        "created_at": 1643881135000,
+        "updated_at": 1658761078919
+    },
+    {
+        "id": "2338",
+        "member_id": "CXPq9AD0XZoOO",
+        "nurse_id": "CXPq9AD0XZoRR",
+        "type": "BLOODPRESSURE",
+        "value": {
+            "systole": "",
+            "disatole": ""
+        },
+        "method": "MANUAL",
+        "diagnosis": "diagnosis",
+        "note": "ini adalah note",
+        "mime_type": "text",
+        "created_at": 1643881135000,
+        "updated_at": 1643881135000
+    },
+    {
+        "id": "2339",
+        "member_id": "CXPq9AD0XZoOO",
+        "nurse_id": "CXPq9AD0XZoRR",
+        "type": "SLEEP",
+        "value": {
+            "sleepStart": 1643881135000,
+            "sleepEnd": 1643881135000,
+            "deepSleep": 455,
+            "lightSleep": 397,
+            "wakeTime": 2
+        },
+        "method": "MANUAL",
+        "diagnosis": "diagnosis",
+        "note": "ini adalah note",
+        "mime_type": "text",
+        "created_at": 1643881135000,
+        "updated_at": 1643881135000
+    },
+    {
+        "id": "2340",
+        "member_id": "CXPq9AD0XZoOO",
+        "nurse_id": "CXPq9AD0XZoRR",
+        "type": "BLOODPRESSURE",
+        "value": {
+            "systole": "",
+            "disatole": ""
+        },
+        "method": "MANUAL",
+        "diagnosis": "diagnosis",
+        "note": "ini note yang diubah",
+        "mime_type": "text",
+        "created_at": 1658761331306,
+        "updated_at": 1658761331336
+    }
+]
